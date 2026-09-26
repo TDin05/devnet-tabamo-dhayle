@@ -1,6 +1,6 @@
 """
 Midterm Practical Exam — Network Device Inventory Tool
-Student: [your name]
+Student: [Dhayle Tabamo]
 """
 
 devices = []  # starts empty — the user adds devices as the program runs
@@ -8,12 +8,17 @@ devices = []  # starts empty — the user adds devices as the program runs
 def display_menu():
     # print the menu, return the user's choice
     print("=== Network Devices Inventory ===")
-    print("1. Add a device <br> 2. View all devices 3. Count active vs inactive devices 4. Find a device by name 5. Exit")
+    print("1. Add a device")
+    print("2. View all devices")
+    print("3. Count active vs inactive devices")
+    print("4. Find a device by name")
+    print("5. Exit")
 
     pass
 
 def add_device(device_list):
     # ask for name, IP, status — build the string, add to the list
+    devices = input("Add new device (device_name, IP, Active/Not Active)")
     pass
 
 def view_devices(device_list):
@@ -33,11 +38,11 @@ def remove_device(device_list):
     # your code here
     pass
 
-#def main():
+def main():
     running = True
     while running:
         choice = display_menu()
         # use if/elif to call the right function based on choice
         # set running = False when the user picks Exit
 
-#main()
+main()
