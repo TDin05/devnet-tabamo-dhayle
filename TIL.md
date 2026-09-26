@@ -1,8 +1,7 @@
 # TIL — Today I Learned
 
-A running log of small things you learn along the way — not a full topic,
-just quick notes whenever something clicks or trips you up. Add to this
-anytime, not just during formal lessons.
+module 1 notes: make sure to pull first before pushing (lol) so there will be no clutter when merging an update in the repo.
+module 2 lesson 1: i thought list, tuple, dictionary, set are not a data type (they are).
 
 ## Example (delete this once you add your own)
 - Learned that a function with no `return` still gives back `None`,
