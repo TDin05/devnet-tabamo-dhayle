@@ -14,6 +14,8 @@ def display_menu():
     print("4. Find a device by name")
     print("5. Exit")
 
+    choice = input("enter a number")
+    
     pass
 
 def add_device(device_list):
@@ -39,6 +41,7 @@ def count_active_inactive(device_list):
 
 def find_device(device_list):
     # ask for a name, search the list, print result or "not found"
+    find = input("Enter device name")
     
     pass
 
@@ -53,5 +56,17 @@ def main():
         choice = display_menu()
         # use if/elif to call the right function based on choice
         # set running = False when the user picks Exit
+        display_menu
+        if choice == "1":
+            add_device
+        elif choice == "2":
+            view_devices
+        elif choice == "3":
+            count_active_inactive
+        elif choice == "4":
+            find_device
+        elif choice == "5":
+            running = False
+
 
 main()
