@@ -18,19 +18,28 @@ def display_menu():
 
 def add_device(device_list):
     # ask for name, IP, status — build the string, add to the list
-    devices = input("Add new device (device_name, IP, Active/Not Active)")
+    device_list = input("Add new device (device_name, IP, Active/Not Active)")
     pass
 
 def view_devices(device_list):
     # loop through and print every device — handle empty list
+    for devices in device_list:
+        try:
+            print(devices)
+        except:
+            print("there are no devices here...")
+
     pass
 
 def count_active_inactive(device_list):
     # loop through, count Active vs Inactive, return both
+    for devices in device_list:
+        print(devices[-1])
     pass
 
 def find_device(device_list):
     # ask for a name, search the list, print result or "not found"
+    
     pass
 
 # BONUS (optional)
