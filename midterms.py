@@ -14,13 +14,14 @@ def display_menu():
     print("4. Find a device by name")
     print("5. Exit")
 
-    choice = input("enter a number")
+    choice = input("Enter a number: ")
     
     pass
 
 def add_device(device_list):
     # ask for name, IP, status — build the string, add to the list
-    device_list = input("Add new device (device_name, IP, Active/Not Active)")
+    print("Add a device: ")
+    device_list = input("Add new device (device name - IP - Active/Not Active)")
     pass
 
 def view_devices(device_list):
@@ -57,16 +58,18 @@ def main():
         # use if/elif to call the right function based on choice
         # set running = False when the user picks Exit
         display_menu
-        if choice == "1":
-            add_device
-        elif choice == "2":
-            view_devices
-        elif choice == "3":
-            count_active_inactive
-        elif choice == "4":
-            find_device
-        elif choice == "5":
+        if choice == 1:
+            add_device()
+        elif choice == 2:
+            view_devices()
+        elif choice == 3:
+            count_active_inactive()
+        elif choice == 4:
+            find_device()
+        elif choice == 5:
             running = False
+        else:
+            print("Enter a one of the choices!")
 
 
 main()
