@@ -14,7 +14,7 @@ skipping the subfolders and moving the files e.g. the ones that ends with .jpg, 
 goes to images folder, .pdf, .docx, .txt, .pptx goes to documents folder, .mp4, .mov, .avi goes to
 the videos folder, and everything else goes to others folder. For every files moved the counter 
 for each folder increments to 1 for the summary after the program
-finished sorting]
+finished sorting(there are some mistakes prbably when running, sometimes it runs too long in vs code or can't find the path)]
 
 
 ============================================
