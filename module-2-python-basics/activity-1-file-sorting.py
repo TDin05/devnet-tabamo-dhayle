@@ -47,53 +47,13 @@ if os.path.exists(p) == True:
     vidcount = 0
     othr_count = 0
 
-    
-    if os.path.exists(p + "/Images") == False:
-        os.mkdir(p+"/Images")
-    if os.path.exists(p+"/Documents")==False:
-        os.mkdir(p + "/Documents")
-    if os.path.exists(p + "/Videos") == False:
-        os.mkdir(p+"/Videos")
-    if os.path.exists(p+"/Others")==False:
-        os.mkdir(p + "/Others")
-
     for f in fileList:
         if f=="Images" or f == "Documents" or f=="Videos" or f == "Others":
             continue
 
-        fullpath = os.path.join(p,f)
 
         if os.path.isdir(fullpath)==True:
             continue
-
-        
-        if f.endswith(".jpg") or f.endswith(".jpeg") or f.endswith(".png") or f.endswith(".gif"):
-            dest="Images"
-            imgCount=imgCount+1
-        elif f.endswith(".pdf") or f.endswith(".docx") or f.endswith(".txt") or f.endswith(".pptx"):
-            dest = "Documents"
-            docCount = docCount+1
-        elif f.endswith(".mp4") or f.endswith(".mov") or f.endswith(".avi"):
-            dest="Videos"
-            vidcount=vidcount + 1
-        else:
-            dest = "Others"
-            othr_count=othr_count+1
-
-        newpath = os.path.join(p, dest, f)
-        shutil.move(fullpath, newpath)
-
-        print("Moved: " + f + " -> " + dest + "/")
-
-    tot = imgCount+docCount+vidcount+othr_count
-
-    print("")
-    print("----- FOLDER SUMMARY -----")
-    print("Images moved: "+str(imgCount))
-    print("Documents moved: " + str(docCount))
-    print("Videos moved: "+str(vidcount))
-    print("Others moved: " +str(othr_count))
-    print("Total files organized: "+str(tot))
 
 else:
     print("that folder doesnt exist, try again")
