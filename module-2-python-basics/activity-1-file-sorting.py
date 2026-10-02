@@ -32,31 +32,6 @@ YOUR SCRIPT
 ============================================
 Paste the code you already wrote for this activity below.
 """
-
-import os
-import shutil
-
-p = input("Enter the folder path to organize: ")
-
-if os.path.exists(p) == True:
-
-    fileList = os.listdir(p)
-
-    imgCount = 0
-    docCount=0
-    vidcount = 0
-    othr_count = 0
-
-    for f in fileList:
-        if f=="Images" or f == "Documents" or f=="Videos" or f == "Others":
-            continue
-
-
-        if os.path.isdir(fullpath)==True:
-            continue
-
-else:
-    print("that folder doesnt exist, try again")
 # --- paste your existing code here ---
 
 
