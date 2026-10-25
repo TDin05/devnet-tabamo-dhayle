@@ -1,13 +1,15 @@
 import requests
 import json
+import random
 
-
+pmon = random.sample(range(2, 1025), 5)
 #https://pokeapi.co/api/v2/pokemon/1 <-- change this to change the pokemon dawg.
-pokemon1 = requests.get("https://pokeapi.co/api/v2/pokemon/250") 
-pokemon2 = requests.get("https://pokeapi.co/api/v2/pokemon/10")
-pokemon3 = requests.get("https://pokeapi.co/api/v2/pokemon/5")
-pokemon4 = requests.get("https://pokeapi.co/api/v2/pokemon/151")
-pokemon5 = requests.get("https://pokeapi.co/api/v2/pokemon/150")
+pokemon1 = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pmon[0]}") 
+pokemon2 = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pmon[1]}")
+pokemon3 = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pmon[2]}")
+pokemon4 = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pmon[3]}")
+pokemon5 = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pmon[4]}")
+
 
 info1 = pokemon1.json()
 info2 = pokemon2.json()
