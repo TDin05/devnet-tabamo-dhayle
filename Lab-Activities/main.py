@@ -3,7 +3,7 @@ import json
 import random
 
 
-pmon = random.sample(range(2, 1025), 5)
+pmon = random.sample(range(2, 1026), 5)
 #https://pokeapi.co/api/v2/pokemon/1 <-- change this to change the pokemon dawg.
 try:
     pokemon1 = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pmon[0]}")
@@ -15,6 +15,7 @@ try:
 
 except ValueError as p1:
     print(f"There is an error occured, failed to fetch{p1}")
+    info1 = None
 
 try:
     pokemon2 = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pmon[1]}")
@@ -26,6 +27,7 @@ try:
 
 except ValueError as p2:
     print(f"There is an error occured, failed to fetch{p2}")
+    info2 = None
 
 try:
     pokemon3 = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pmon[2]}")
@@ -37,6 +39,7 @@ try:
 
 except ValueError as p3:
     print(f"There is an error occured, failed to fetch{p3}")
+    info3 = None
 
 try:
     pokemon4 = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pmon[3]}")
@@ -48,6 +51,7 @@ try:
 
 except ValueError as p4:
     print(f"There is an error occured, failed to fetch{p4}")
+    info4 = None
 
 try:
     pokemon5 = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pmon[4]}")
@@ -59,6 +63,7 @@ try:
 
 except ValueError as p5:
     print(f"There is an error occured, failed to fetch{p5}")
+    info5 = None
 
 print("=-" * 25)
 print("                      START!")
@@ -121,6 +126,12 @@ ability5 = [abilities5["ability"]["name"] for abilities5 in info5["abilities"]]
 moves5 = info5["moves"]
 move5 = [moves5["move"]["name"] for moves5 in info5["moves"][:mvlimit]]
 
+tries1 = 3
+tries2 = 3
+tries3 = 3
+tries4 = 3
+tries5 = 3
+
 while True:
     print("=-" * 25)
     print("ID: ",id1)
@@ -132,6 +143,7 @@ while True:
 
     try:
         guest1 = input("Who's that Pokemon!? \n").lower()
+        
 
         if not guest1.replace("-", "").isalpha():
             raise ValueError(guest1)
@@ -139,10 +151,16 @@ while True:
         if guest1 == pname1:
             print(f"That's right! It's {guest1}!" )
             score +=1
-        
-        else:
-            print(f"Wrong! It's {pname1}!")
-        break
+            break
+        elif guest1 != pname1:
+            
+            tries1 -=1
+            
+            if tries1 == 0:
+                print(f"Wrong! It's {pname1}!")
+                print("No more tries left, procceding...")
+                break
+            print(f"Wrong! guess again! {tries1} tries left")
         
     except ValueError as a:
         print(f"There is no known Pokemon has a name that starts with '{a}'!")   
@@ -165,11 +183,17 @@ while True:
         if guest2 == pname2:
             print(f"That's right! It's {guest2}!" )
             score +=1
-        
-        else:
-            print(f"Wrong! It's {pname2}!")
-        break
-        
+            break
+        elif guest2 != pname2:
+            
+            tries2 -=1
+            
+            if tries2 == 0:
+                print(f"Wrong! It's {pname2}!")
+                print("No more tries left, procceding...")
+                break 
+            print(f"Wrong! guess again! {tries2} tries left")
+
     except ValueError as b:
         print(f"There is no known Pokemon has a name that starts with '{b}'!")   
 
@@ -184,18 +208,24 @@ while True:
 
     try:
         guest3 = input("Who's that Pokemon!? \n").lower()
-
+        
         if not guest3.replace("-", "").isalpha():
             raise ValueError(guest3)
         
         if guest3 == pname3:
             print(f"That's right! It's {guest3}!" )
             score +=1
+            break
+        elif guest3 != pname3:
+            
+            tries3 -=1
+            
+            if tries3== 0:
+                print(f"Wrong! It's {pname3}!")
+                print("No more tries left, procceding...")
+                break 
+            print(f"Wrong! guess again! {tries3} tries left")
 
-        else:
-            print(f"Wrong! It's {pname3}!")
-        break
-        
     except ValueError as c:
         print(f"There is no known Pokemon has a name that starts with '{c}'!")   
 
@@ -210,18 +240,24 @@ while True:
 
     try:
         guest4 = input("Who's that Pokemon!? \n").lower()
-
+        tries4 = 3
         if not guest4.replace("-", "").isalpha():
             raise ValueError(guest4)
         
         if guest4 == pname4:
             print(f"That's right! It's {guest4}!" )
             score +=1
-        
-        else:
-            print(f"Wrong! It's {pname4}!")
-        break
-        
+            break
+        elif guest4 != pname4:
+            
+            tries4 -=1
+            
+            if tries4 == 0:
+                print(f"Wrong! It's {pname4}!")
+                print("No more tries left, procceding...")
+                break
+            print(f"Wrong! guess again! {tries4} tries left")
+
     except ValueError as d:
         print(f"There is no known Pokemon has a name that starts with '{d}'!")   
 
@@ -236,23 +272,28 @@ while True:
 
     try:
         guest5 = input("Who's that Pokemon!? \n").lower()
-
+        tries5 = 3
         if not guest5.replace("-", "").isalpha():
             raise ValueError(guest5)
         
         if guest5 == pname5:
             print(f"That's right! It's {guest5}!" )
             score +=1
-    
-        else:
-            print(f"Wrong! It's {pname5}!")
-            print("=-" * 25)
-        break
-        
+            break
+        elif guest5 != pname5:
+            
+            tries5 -=1
+            
+            if tries5 == 0:
+                print(f"Wrong! It's {pname5}!")
+                print("No more tries left, procceding...")
+                break
+            print(f"Wrong! guess again! {tries5} tries left")
+
     except ValueError as e:
         print(f"There is no known Pokemon has a name that starts with '{e}'!")   
 
 print("=-" * 25)
 print(f"            You guessed {score} out of 5 Pokemons!")
-print("                     GoodGame!")
+print("\n                     GoodGame!")
 print("=-" * 25)
