@@ -2,21 +2,69 @@ import requests
 import json
 import random
 
+
 pmon = random.sample(range(2, 1025), 5)
 #https://pokeapi.co/api/v2/pokemon/1 <-- change this to change the pokemon dawg.
-pokemon1 = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pmon[0]}") 
-pokemon2 = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pmon[1]}")
-pokemon3 = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pmon[2]}")
-pokemon4 = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pmon[3]}")
-pokemon5 = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pmon[4]}")
+try:
+    pokemon1 = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pmon[0]}")
+    if pokemon1.status_code != 200:
+        raise ValueError(f"HTTP{pokemon1.status_code}") 
+    info1 = pokemon1.json()
+    if pokemon1.status_code == 200:
+        print(f"P1_status: {pokemon1.status_code} : OK")
 
+except ValueError as p1:
+    print(f"There is an error occured, failed to fetch{p1}")
 
-info1 = pokemon1.json()
-info2 = pokemon2.json()
-info3 = pokemon3.json()
-info4 = pokemon4.json()
-info5 = pokemon5.json()
+try:
+    pokemon2 = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pmon[1]}")
+    if pokemon2.status_code !=200:
+        raise ValueError(f"HTTP{pokemon2.status_code}")
+    info2 = pokemon2.json()
+    if pokemon2.status_code == 200:
+        print(f"P2_status: {pokemon2.status_code} : OK")
+
+except ValueError as p2:
+    print(f"There is an error occured, failed to fetch{p2}")
+
+try:
+    pokemon3 = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pmon[2]}")
+    if pokemon3.status_code != 200:
+        raise ValueError(f"HTTP{pokemon3.status_code}")
+    info3 = pokemon3.json()
+    if pokemon3.status_code == 200:
+        print(f"P3_status: {pokemon3.status_code} : OK")
+
+except ValueError as p3:
+    print(f"There is an error occured, failed to fetch{p3}")
+
+try:
+    pokemon4 = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pmon[3]}")
+    if pokemon4.status_code !=200:
+        raise ValueError(f"HTTP{pokemon4.status_code}")
+    info4 = pokemon4.json()
+    if pokemon4.status_code == 200:
+        print(f"P4_status: {pokemon4.status_code} : OK")
+
+except ValueError as p4:
+    print(f"There is an error occured, failed to fetch{p4}")
+
+try:
+    pokemon5 = requests.get(f"https://pokeapi.co/api/v2/pokemon/{pmon[4]}")
+    if pokemon5.status_code != 200:
+        raise ValueError(f"HTTP{pokemon5.status_code}")
+    info5 = pokemon5.json()
+    if pokemon5.status_code == 200:
+        print(f"P5_status: {pokemon5.status_code} : OK")
+
+except ValueError as p5:
+    print(f"There is an error occured, failed to fetch{p5}")
+
+print("=-" * 25)
+print("                      START!")
+
 mvlimit = 4 #the 4 moves the pokemon could learn this could include hm and tm not just the level up moves.
+score = 0
 
 pname1 = info1["name"]
 id1 = info1["id"]
@@ -90,6 +138,7 @@ while True:
 
         if guest1 == pname1:
             print(f"That's right! It's {guest1}!" )
+            score +=1
         
         else:
             print(f"Wrong! It's {pname1}!")
@@ -115,6 +164,7 @@ while True:
 
         if guest2 == pname2:
             print(f"That's right! It's {guest2}!" )
+            score +=1
         
         else:
             print(f"Wrong! It's {pname2}!")
@@ -140,6 +190,7 @@ while True:
         
         if guest3 == pname3:
             print(f"That's right! It's {guest3}!" )
+            score +=1
 
         else:
             print(f"Wrong! It's {pname3}!")
@@ -165,6 +216,7 @@ while True:
         
         if guest4 == pname4:
             print(f"That's right! It's {guest4}!" )
+            score +=1
         
         else:
             print(f"Wrong! It's {pname4}!")
@@ -190,6 +242,7 @@ while True:
         
         if guest5 == pname5:
             print(f"That's right! It's {guest5}!" )
+            score +=1
     
         else:
             print(f"Wrong! It's {pname5}!")
@@ -198,4 +251,8 @@ while True:
         
     except ValueError as e:
         print(f"There is no known Pokemon has a name that starts with '{e}'!")   
-    print("=-" * 25)
+
+print("=-" * 25)
+print(f"            You guessed {score} out of 5 Pokemons!")
+print("                     GoodGame!")
+print("=-" * 25)
